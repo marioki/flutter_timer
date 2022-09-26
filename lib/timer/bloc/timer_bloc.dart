@@ -1,9 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_timer/bloc/timer_event.dart';
-import 'package:flutter_timer/bloc/timer_state.dart';
 import 'package:flutter_timer/ticker.dart';
+import 'package:flutter_timer/timer/bloc/timer_event.dart';
+import 'package:flutter_timer/timer/bloc/timer_state.dart';
 
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
   final Ticker _ticker;
@@ -14,7 +13,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   TimerBloc({
     required Ticker ticker,
   })  : _ticker = ticker,
-        super(TimerInitial(_duration)) {
+        super(const TimerInitial(_duration)) {
     on<TimerStarted>(_onStarted);
     on<TimerTicked>(onTicked);
     on<TimerPaused>(onPaused);
